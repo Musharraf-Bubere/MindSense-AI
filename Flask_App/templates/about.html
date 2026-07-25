@@ -1,0 +1,503 @@
+{% extends "base.html" %}
+
+{% block title %}About | MindSense AI{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+
+<section class="about-section py-5">
+
+<div class="container">
+
+<!-- ================= HERO ================= -->
+
+<div class="text-center mb-5">
+
+<h1 class="display-4 fw-bold text-primary">
+
+🧠 About MindSense AI
+
+</h1>
+
+<p class="lead text-secondary">
+
+AI-Powered Mental Health Risk Prediction using Explainable Artificial Intelligence (SHAP)
+
+</p>
+
+<hr class="w-25 mx-auto mb-4">
+
+<p class="col-lg-9 mx-auto">
+
+MindSense AI is an intelligent web application designed to predict an individual's
+mental health risk using Machine Learning while providing transparent explanations
+through SHAP (Explainable AI). The system helps users understand why predictions are made
+and provides personalized recommendations for better mental well-being.
+
+</p>
+
+</div>
+
+<!-- ================= MISSION ================= -->
+
+<div class="card shadow border-0 rounded-4 mb-5 hover-card">
+
+<div class="card-body p-5">
+
+<h2 class="fw-bold mb-4">
+
+🎯 Our Mission
+
+</h2>
+
+<p>
+
+Our mission is to make mental health assessment more accessible,
+transparent, and trustworthy by combining Machine Learning with
+Explainable Artificial Intelligence.
+
+We believe every prediction should be understandable so users can make informed
+decisions about their mental well-being.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- ================= FEATURES ================= -->
+
+<h2 class="fw-bold text-center mb-5">
+
+✨ Key Features
+
+</h2>
+
+<div class="row g-4">
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card h-100 border-0 shadow rounded-4 text-center hover-card">
+
+<div class="card-body">
+
+<div class="display-4">🤖</div>
+
+<h4 class="mt-3">AI Prediction</h4>
+
+<p>
+
+Uses Logistic Regression to predict mental health risk with high accuracy.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card h-100 border-0 shadow rounded-4 text-center hover-card">
+
+<div class="card-body">
+
+<div class="display-4">🧠</div>
+
+<h4 class="mt-3">Explainable AI</h4>
+
+<p>
+
+Every prediction is explained using SHAP feature importance.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card h-100 border-0 shadow rounded-4 text-center hover-card">
+
+<div class="card-body">
+
+<div class="display-4">💙</div>
+
+<h4 class="mt-3">Recommendations</h4>
+
+<p>
+
+Personalized suggestions based on user responses and predicted risk.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card h-100 border-0 shadow rounded-4 text-center hover-card">
+
+<div class="card-body">
+
+<div class="display-4">📊</div>
+
+<h4 class="mt-3">Analytics Dashboard</h4>
+
+<p>
+
+Interactive charts and real-time assessment statistics.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= TECHNOLOGY ================= -->
+
+<div class="card shadow border-0 rounded-4 my-5 hover-card">
+
+<div class="card-body">
+
+<h2 class="fw-bold mb-4">
+
+⚙ Technology Stack
+
+</h2>
+
+<table class="table table-striped align-middle">
+
+<thead>
+
+<tr>
+
+<th>Technology</th>
+
+<th>Purpose</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr><td>Python</td><td>Backend Programming</td></tr>
+
+<tr><td>Flask</td><td>Web Framework</td></tr>
+
+<tr><td>Scikit-learn</td><td>Machine Learning Model</td></tr>
+
+<tr><td>SHAP</td><td>Explainable AI</td></tr>
+
+<tr><td>SQLite</td><td>Database</td></tr>
+
+<tr><td>Bootstrap 5</td><td>Responsive UI</td></tr>
+
+<tr><td>Chart.js</td><td>Interactive Charts</td></tr>
+
+<tr><td>ReportLab</td><td>PDF Report Generation</td></tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- ================= WORKFLOW ================= -->
+
+<div class="card shadow border-0 rounded-4 mb-5 hover-card">
+
+<div class="card-body">
+
+<h2 class="fw-bold mb-4 text-center">
+
+🚀 AI Prediction Workflow
+
+</h2>
+
+<div class="row text-center g-4">
+
+<div class="col-md">
+
+<div class="card border-primary">
+
+<div class="card-body">
+
+📝
+
+<h6 class="mt-2">Assessment</h6>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md">
+
+<div class="card border-primary">
+
+<div class="card-body">
+
+⚙
+
+<h6 class="mt-2">Preprocessing</h6>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md">
+
+<div class="card border-primary">
+
+<div class="card-body">
+
+🤖
+
+<h6 class="mt-2">Prediction</h6>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md">
+
+<div class="card border-primary">
+
+<div class="card-body">
+
+🧠
+
+<h6 class="mt-2">SHAP</h6>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md">
+
+<div class="card border-primary">
+
+<div class="card-body">
+
+💙
+
+<h6 class="mt-2">Recommendations</h6>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md">
+
+<div class="card border-primary">
+
+<div class="card-body">
+
+📄
+
+<h6 class="mt-2">PDF Report</h6>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= PROJECT STATS ================= -->
+
+<h2 class="fw-bold text-center mb-4">
+
+📈 Project Statistics
+
+</h2>
+
+<div class="row g-4 mb-5">
+
+<div class="col-md-3">
+
+<div class="card shadow text-center hover-card">
+
+<div class="card-body">
+
+<h1 class="text-primary">107</h1>
+
+<p>Features</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card shadow text-center hover-card">
+
+<div class="card-body">
+
+<h1 class="text-success">96%</h1>
+
+<p>Accuracy</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card shadow text-center hover-card">
+
+<div class="card-body">
+
+<h1 class="text-danger">2</h1>
+
+<p>Risk Classes</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card shadow text-center hover-card">
+
+<div class="card-body">
+
+<h1 class="text-info">100%</h1>
+
+<p>Explainable</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= FUTURE SCOPE ================= -->
+
+<div class="card shadow border-0 rounded-4 mb-5 hover-card">
+
+<div class="card-body">
+
+<h2 class="fw-bold mb-4">
+
+🚀 Future Enhancements
+
+</h2>
+
+<ul class="list-group">
+
+<li class="list-group-item">📱 Mobile Application</li>
+
+<li class="list-group-item">👨‍⚕ Doctor Dashboard</li>
+
+<li class="list-group-item">☁ Cloud Deployment</li>
+
+<li class="list-group-item">📧 Email Notifications</li>
+
+<li class="list-group-item">🤖 Deep Learning Models</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+
+<div class="card shadow border-0 rounded-4">
+
+<div class="card-body text-center p-5">
+
+<h3 class="fw-bold">
+
+MindSense AI
+
+</h3>
+
+<p>Version 1.0</p>
+
+<p class="text-muted">
+
+Developed as an AI-powered Mental Health Risk Prediction System using Explainable AI.
+
+</p>
+
+<hr>
+
+<div class="mt-4">
+
+<a href="/assessment" class="btn btn-primary me-2">
+
+Take Assessment
+
+</a>
+
+<a href="/dashboard" class="btn btn-success me-2">
+
+Dashboard
+
+</a>
+
+<a href="/" class="btn btn-outline-primary">
+
+Home
+
+</a>
+
+</div>
+
+<hr>
+
+<p class="mb-0">
+
+© 2026 MindSense AI | All Rights Reserved.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

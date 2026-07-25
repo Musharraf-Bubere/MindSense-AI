@@ -1,0 +1,621 @@
+{% extends "base.html" %}
+
+{% block title %}Home | MindSense AI{% endblock %}
+
+{% block content %}
+
+<!-- ================= HERO SECTION ================= -->
+
+<section class="hero">
+
+<div class="container">
+
+<div class="row align-items-center">
+
+<!-- LEFT -->
+
+<div class="col-lg-6">
+
+<span class="badge bg-primary px-4 py-2 rounded-pill">
+
+🚀 AI Powered Mental Health Platform
+
+</span>
+
+<h1 class="display-3 fw-bold mt-4">
+
+Mental Health Risk Prediction
+
+<span class="text-primary">
+
+using Explainable AI
+
+</span>
+
+</h1>
+
+<p class="lead mt-4">
+
+MindSense AI is an Explainable Artificial Intelligence platform
+designed to assist in early mental health risk assessment.
+
+Unlike traditional AI systems that only provide predictions,
+our platform explains every prediction using SHAP,
+helping users understand the contributing factors
+while providing personalized recommendations.
+
+</p>
+
+<div class="mt-5">
+
+<a href="/assessment"
+class="btn btn-primary btn-lg">
+
+Start Assessment
+
+</a>
+
+<a href="/dashboard"
+class="btn btn-outline-primary btn-lg ms-3">
+
+View Dashboard
+
+</a>
+
+</div>
+
+<!-- Statistics -->
+
+<div class="row mt-5">
+
+<div class="col-6">
+
+<div class="stat-card">
+
+<i class="bi bi-award-fill"></i>
+
+<h2>99%</h2>
+
+<p>Accuracy</p>
+
+</div>
+
+</div>
+
+<div class="col-6">
+
+<div class="stat-card">
+
+<i class="bi bi-graph-up-arrow"></i>
+
+<h2>0.999</h2>
+
+<p>ROC-AUC</p>
+
+</div>
+
+</div>
+
+<div class="col-6 mt-3">
+
+<div class="stat-card">
+
+<i class="bi bi-bullseye"></i>
+
+<h2>96%</h2>
+
+<p>Precision</p>
+
+</div>
+
+</div>
+
+<div class="col-6 mt-3">
+
+<div class="stat-card">
+
+<i class="bi bi-check-circle-fill"></i>
+
+<h2>95%</h2>
+
+<p>Recall</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="col-lg-6 text-center">
+
+<img
+src="{{ url_for('static', filename='images/hero.png') }}"
+class="img-fluid hero-image"
+alt="MindSense AI">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= WHY MINDSENSE AI ================= -->
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h2 class="fw-bold">
+
+Why MindSense AI?
+
+</h2>
+
+<p class="text-muted">
+
+Artificial Intelligence meets Explainable Healthcare.
+
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-md-3">
+
+<div class="feature-card">
+
+<i class="bi bi-cpu feature-icon"></i>
+
+<h4>Machine Learning</h4>
+
+<p>
+
+Predicts mental health risk using
+Logistic Regression.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="feature-card">
+
+<i class="bi bi-bar-chart-line feature-icon"></i>
+
+<h4>Explainable AI</h4>
+
+<p>
+
+SHAP explains every prediction
+for complete transparency.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="feature-card">
+
+<i class="bi bi-heart-pulse feature-icon"></i>
+
+<h4>Recommendations</h4>
+
+<p>
+
+Receive personalized mental wellness
+recommendations.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="feature-card">
+
+<i class="bi bi-lightning-charge feature-icon"></i>
+
+<h4>Fast Prediction</h4>
+
+<p>
+
+AI-powered prediction
+within seconds.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section class="py-5 bg-light">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h2 class="fw-bold">
+
+How MindSense AI Works
+
+</h2>
+
+<p class="text-muted">
+
+A simple four-step workflow powered by Artificial Intelligence.
+
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-3 col-md-6">
+
+<div class="step-card">
+
+<div class="step-number">
+
+1
+
+</div>
+
+<h4>Assessment</h4>
+
+<p>
+
+Complete the mental health assessment by providing
+your lifestyle, academic, work, and psychological details.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="step-card">
+
+<div class="step-number">
+
+2
+
+</div>
+
+<h4>AI Prediction</h4>
+
+<p>
+
+Our trained Logistic Regression model predicts
+your mental health risk in real time.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="step-card">
+
+<div class="step-number">
+
+3
+
+</div>
+
+<h4>Explainability</h4>
+
+<p>
+
+SHAP highlights the most influential
+features responsible for the prediction.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="step-card">
+
+<div class="step-number">
+
+4
+
+</div>
+
+<h4>Recommendations</h4>
+
+<p>
+
+Receive AI-assisted recommendations
+to support better mental well-being.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= TECHNOLOGY STACK ================= -->
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h2 class="fw-bold">
+
+Technology Stack
+
+</h2>
+
+<p class="text-muted">
+
+Modern technologies powering MindSense AI.
+
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-2 col-md-4 col-6">
+
+<div class="tech-card">
+
+<i class="bi bi-filetype-py"></i>
+
+<h5>Python</h5>
+
+</div>
+
+</div>
+
+<div class="col-lg-2 col-md-4 col-6">
+
+<div class="tech-card">
+
+<i class="bi bi-bootstrap-fill"></i>
+
+<h5>Bootstrap</h5>
+
+</div>
+
+</div>
+
+<div class="col-lg-2 col-md-4 col-6">
+
+<div class="tech-card">
+
+<i class="bi bi-window"></i>
+
+<h5>Flask</h5>
+
+</div>
+
+</div>
+
+<div class="col-lg-2 col-md-4 col-6">
+
+<div class="tech-card">
+
+<i class="bi bi-bar-chart-fill"></i>
+
+<h5>SHAP</h5>
+
+</div>
+
+</div>
+
+<div class="col-lg-2 col-md-4 col-6">
+
+<div class="tech-card">
+
+<i class="bi bi-cpu-fill"></i>
+
+<h5>ML Model</h5>
+
+</div>
+
+</div>
+
+<div class="col-lg-2 col-md-4 col-6">
+
+<div class="tech-card">
+
+<i class="bi bi-database-fill"></i>
+
+<h5>Pandas</h5>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= MODEL HIGHLIGHTS ================= -->
+
+<section class="py-5 bg-light">
+
+<div class="container">
+
+<div class="row align-items-center">
+
+<div class="col-lg-6">
+
+<h2 class="fw-bold mb-4">
+
+Why Explainable AI?
+
+</h2>
+
+<p>
+
+Unlike traditional machine learning applications that only provide predictions,
+MindSense AI explains the reasoning behind every prediction.
+
+</p>
+
+<ul class="list-group list-group-flush mt-4">
+
+<li class="list-group-item">
+
+✅ Transparent AI Predictions
+
+</li>
+
+<li class="list-group-item">
+
+✅ SHAP Feature Importance
+
+</li>
+
+<li class="list-group-item">
+
+✅ Confidence Score
+
+</li>
+
+<li class="list-group-item">
+
+✅ Personalized Recommendations
+
+</li>
+
+<li class="list-group-item">
+
+✅ User-Friendly Dashboard
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="col-lg-6 text-center">
+
+<img
+src="{{ url_for('static', filename='images/hero.png') }}"
+class="img-fluid"
+style="max-width:500px;">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= CALL TO ACTION ================= -->
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="cta">
+
+<h2 class="display-5 fw-bold">
+
+Ready to Know Your Mental Health Risk?
+
+</h2>
+
+<p class="lead mt-3 mb-4">
+
+Take a quick AI-powered assessment and receive an explainable
+mental health risk prediction with personalized recommendations.
+
+</p>
+
+<a href="/assessment" class="btn btn-light btn-lg">
+
+Start Assessment
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= DISCLAIMER ================= -->
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="card shadow border-0">
+
+<div class="card-body p-5">
+
+<h3 class="fw-bold mb-3">
+
+<i class="bi bi-info-circle-fill text-primary"></i>
+
+Disclaimer
+
+</h3>
+
+<p class="text-muted mb-0">
+
+MindSense AI is developed for educational and research purposes.
+The predictions generated by this system are based on machine
+learning models and should not be considered as a medical diagnosis.
+If you are experiencing symptoms of depression or other mental
+health concerns, please consult a qualified mental health professional.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

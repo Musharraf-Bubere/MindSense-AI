@@ -1,0 +1,385 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | MindSense AI{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+<section class="dashboard-section py-5">
+
+<div class="container">
+
+<!-- ================= HEADER ================= -->
+
+<div class="text-center mb-5">
+
+<h1 class="fw-bold">
+📊 MindSense AI Dashboard
+</h1>
+
+<p class="text-muted">
+Real-Time Analytics for Mental Health Risk Prediction
+</p>
+
+</div>
+
+<!-- ================= STATISTICS ================= -->
+
+<div class="row g-4">
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card dashboard-card shadow border-0 h-100">
+
+<div class="card-body text-center">
+
+<i class="bi bi-people-fill display-5 text-primary"></i>
+
+<h5 class="mt-3">
+Total Assessments
+</h5>
+
+<h2 class="fw-bold">
+{{ total }}
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card dashboard-card shadow border-0 h-100">
+
+<div class="card-body text-center">
+
+<i class="bi bi-emoji-smile-fill display-5 text-success"></i>
+
+<h5 class="mt-3">
+Low Risk
+</h5>
+
+<h2 class="fw-bold text-success">
+
+{% if total > 0 %}
+{{ "%.1f"|format((low / total) * 100) }}%
+{% else %}
+0%
+{% endif %}
+
+</h2>
+
+<p class="text-muted mb-0">
+{{ low }} Assessment(s)
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card dashboard-card shadow border-0 h-100">
+
+<div class="card-body text-center">
+
+<i class="bi bi-exclamation-triangle-fill display-5 text-danger"></i>
+
+<h5 class="mt-3">
+High Risk
+</h5>
+
+<h2 class="fw-bold text-danger">
+
+{% if total > 0 %}
+{{ "%.1f"|format((high / total) * 100) }}%
+{% else %}
+0%
+{% endif %}
+
+</h2>
+
+<p class="text-muted mb-0">
+{{ high }} Assessment(s)
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card dashboard-card shadow border-0 h-100">
+
+<div class="card-body text-center">
+
+<i class="bi bi-bar-chart-fill display-5 text-info"></i>
+
+<h5 class="mt-3">
+Average Confidence
+</h5>
+
+<h2 class="fw-bold text-primary">
+{{ avg_confidence }}%
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= CHARTS ================= -->
+
+<div class="row mt-5">
+
+<div class="col-lg-6 mb-4">
+
+<div class="card shadow border-0 h-100">
+
+<div class="card-body">
+
+<h4 class="mb-4">
+📈 Risk Distribution
+</h4>
+
+<div style="height:320px;">
+
+<canvas id="riskChart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-6 mb-4">
+
+<div class="card shadow border-0 h-100">
+
+<div class="card-body">
+
+<h4 class="mb-4">
+📊 Model Performance
+</h4>
+
+<div style="height:320px;">
+
+<canvas id="performanceChart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= MODEL INFO ================= -->
+
+<div class="card shadow border-0 mt-4">
+
+<div class="card-body">
+
+<h3 class="fw-bold mb-4">
+🧠 AI Model Information
+</h3>
+
+<table class="table table-striped">
+
+<tbody>
+
+<tr>
+<th>Machine Learning Model</th>
+<td>Logistic Regression</td>
+</tr>
+
+<tr>
+<th>Explainability</th>
+<td>SHAP (Explainable AI)</td>
+</tr>
+
+<tr>
+<th>Number of Features</th>
+<td>107</td>
+</tr>
+
+<tr>
+<th>Prediction Classes</th>
+<td>Low Risk / High Risk</td>
+</tr>
+
+<tr>
+<th>Programming Language</th>
+<td>Python</td>
+</tr>
+
+<tr>
+<th>Framework</th>
+<td>Flask</td>
+</tr>
+
+<tr>
+<th>Frontend</th>
+<td>HTML, CSS, Bootstrap, JavaScript</td>
+</tr>
+
+<tr>
+<th>Visualization</th>
+<td>Chart.js + SHAP</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- ================= RECENT PREDICTIONS ================= -->
+
+<div class="card shadow border-0 mt-5">
+
+<div class="card-body">
+
+<h3 class="fw-bold mb-4">
+📋 Recent Predictions
+</h3>
+
+<table class="table table-hover align-middle">
+
+<thead class="table-primary">
+
+<tr>
+
+<th>Date</th>
+
+<th>Prediction</th>
+
+<th>Confidence</th>
+
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% if recent %}
+
+{% for item in recent %}
+
+<tr>
+
+<td>{{ item["assessment_date"] }}</td>
+
+<td>
+
+{% if item["prediction"]=="Low Risk" %}
+
+<span class="badge bg-success">
+{{ item["prediction"] }}
+</span>
+
+{% else %}
+
+<span class="badge bg-danger">
+{{ item["prediction"] }}
+</span>
+
+{% endif %}
+
+</td>
+
+<td>
+
+{{ "%.2f"|format(item["confidence"]) }}%
+
+</td>
+
+<td>
+
+<span class="badge bg-primary">
+
+Completed
+
+</span>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+{% else %}
+
+<tr>
+
+<td colspan="4" class="text-center text-muted py-4">
+
+No assessments have been completed yet.
+
+</td>
+
+</tr>
+
+{% endif %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- ================= BUTTONS ================= -->
+
+<div class="text-center mt-5">
+
+<a href="/assessment"
+class="btn btn-primary btn-lg me-3">
+
+Take New Assessment
+
+</a>
+
+<a href="/"
+class="btn btn-outline-primary btn-lg">
+
+Back Home
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<div
+    id="dashboard-data"
+    data-low="{{ low }}"
+    data-high="{{ high }}">
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+{% endblock %}

@@ -1,0 +1,351 @@
+{% extends "base.html" %}
+
+{% block title %}Assessment Result | MindSense AI{% endblock %}
+
+{% block content %}
+
+<section class="assessment-section">
+
+<div class="container">
+
+<div class="row justify-content-center">
+
+<div class="col-lg-11">
+
+<div class="card shadow-lg border-0 rounded-4">
+
+<div class="card-body p-5">
+
+<!-- ================= HEADER ================= -->
+
+<div class="text-center mb-5">
+
+<h1 class="fw-bold mb-3">
+
+Mental Health Assessment Result
+
+</h1>
+
+{% if prediction == "High Risk" %}
+
+<div class="display-1 mb-3">🔴</div>
+
+<h2 class="fw-bold text-danger">
+
+High Risk
+
+</h2>
+
+<p class="lead text-muted">
+
+Your assessment indicates a higher likelihood of mental health risk.
+Please review the recommendations below.
+
+</p>
+
+{% else %}
+
+<div class="display-1 mb-3">🟢</div>
+
+<h2 class="fw-bold text-success">
+
+Low Risk
+
+</h2>
+
+<p class="lead text-muted">
+
+Your assessment indicates a lower likelihood of mental health risk.
+Keep maintaining your healthy lifestyle.
+
+</p>
+
+{% endif %}
+
+</div>
+
+<!-- ================= CONFIDENCE ================= -->
+
+<div class="card border-0 shadow-sm rounded-4 mb-5">
+
+<div class="card-body">
+
+<div class="d-flex justify-content-between mb-2">
+
+<h5 class="fw-bold">
+
+AI Confidence
+
+</h5>
+
+<h5 class="fw-bold text-primary">
+
+{{ confidence }}%
+
+</h5>
+
+</div>
+
+<div class="progress" style="height:15px;">
+
+<div
+id="confidenceBar"
+class="progress-bar bg-primary"
+role="progressbar"
+aria-valuemin="0"
+aria-valuemax="100"
+data-confidence="{{ confidence }}">
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= PROBABILITY ================= -->
+
+<div class="row mb-5">
+
+<div class="col-md-6 mb-3">
+
+<div class="card border-success shadow-sm h-100">
+
+<div class="card-body text-center">
+
+<h5 class="text-success">
+
+🟢 Low Risk Probability
+
+</h5>
+
+<h2 class="fw-bold">
+
+{{ "%.2f"|format(probability[0]*100) }}%
+
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<div class="card border-danger shadow-sm h-100">
+
+<div class="card-body text-center">
+
+<h5 class="text-danger">
+
+🔴 High Risk Probability
+
+</h5>
+
+<h2 class="fw-bold">
+
+{{ "%.2f"|format(probability[1]*100) }}%
+
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= SHAP FACTORS ================= -->
+
+<h3 class="fw-bold mb-4">
+
+🧠 Top Factors Influencing Prediction
+
+</h3>
+
+<div class="row">
+
+{% for item in top_features %}
+
+<div class="col-lg-6 mb-4">
+
+<div class="card border-0 shadow-sm rounded-4 h-100">
+
+<div class="card-body">
+
+<h5 class="fw-bold">
+
+{{ item.Feature.replace("_"," : ") }}
+
+</h5>
+
+{% if item["SHAP Value"] > 0 %}
+
+<span class="badge bg-danger mb-3">
+
+↑ Increased Risk
+
+</span>
+
+{% else %}
+
+<span class="badge bg-success mb-3">
+
+↓ Reduced Risk
+
+</span>
+
+{% endif %}
+
+<h3 class="fw-bold">
+
+{{ "%.3f"|format(item["SHAP Value"]) }}
+
+</h3>
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<!-- ================= SHAP CHART ================= -->
+
+<hr class="my-5">
+
+<h3 class="fw-bold mb-4">
+
+📊 SHAP Feature Importance
+
+</h3>
+
+<div class="text-center">
+
+<img
+src="{{ url_for('static', filename=chart) }}"
+class="img-fluid rounded-4 shadow"
+style="max-width:900px;">
+
+</div>
+
+<!-- ================= RECOMMENDATIONS ================= -->
+
+<hr class="my-5">
+
+<h3 class="fw-bold mb-4">
+
+💙 Personalized Recommendations
+
+</h3>
+
+<div class="row">
+
+{% for recommendation in recommendations %}
+
+<div class="col-md-6 mb-3">
+
+<div class="card border-0 shadow-sm rounded-4 h-100">
+
+<div class="card-body">
+
+<div class="d-flex">
+
+<div class="me-3">
+
+✅
+
+</div>
+
+<div>
+
+{{ recommendation }}
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<!-- ================= ACTION BUTTONS ================= -->
+
+<div class="text-center mt-5">
+
+<a
+href="/download-report"
+class="btn btn-success btn-lg px-5 me-3">
+
+📄 Download PDF Report
+
+</a>
+
+<a
+href="/assessment"
+class="btn btn-primary btn-lg px-5 me-3">
+
+Take Assessment Again
+
+</a>
+
+<a
+href="/dashboard"
+class="btn btn-info btn-lg px-5 me-3">
+
+Dashboard
+
+</a>
+
+<a
+href="/"
+class="btn btn-outline-primary btn-lg px-5">
+
+Home
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const bar = document.getElementById("confidenceBar");
+
+    if (bar) {
+
+        const confidence = bar.dataset.confidence;
+
+        bar.style.width = confidence + "%";
+
+        bar.setAttribute("aria-valuenow", confidence);
+
+    }
+
+});
+
+</script>
+{% endblock %}

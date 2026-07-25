@@ -1,0 +1,141 @@
+/* ======================================================
+   Dashboard Section
+====================================================== */
+
+.dashboard-section{
+
+    padding:140px 0 80px;
+
+    background:linear-gradient(135deg,#F8FAFC,#EEF4FF);
+
+    min-height:100vh;
+
+}
+
+
+/* ======================================================
+   Dashboard Cards
+====================================================== */
+
+.dashboard-card{
+
+    border-radius:20px;
+
+    transition:.3s;
+
+    overflow:hidden;
+
+}
+
+.dashboard-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 35px rgba(37,99,235,.15);
+
+}
+
+.dashboard-card .card-body{
+
+    padding:35px;
+
+}
+
+.dashboard-card i{
+
+    font-size:48px;
+
+}
+
+.dashboard-card h5{
+
+    color:#64748B;
+
+    margin-top:15px;
+
+}
+
+.dashboard-card h2{
+
+    font-weight:700;
+
+}
+
+
+/* ======================================================
+   Charts
+====================================================== */
+
+.card canvas{
+
+    width:100% !important;
+
+    height:320px !important;
+
+}
+
+
+/* ======================================================
+   Model Table
+====================================================== */
+
+.table{
+
+    margin-bottom:0;
+
+}
+
+.table th{
+
+    width:40%;
+
+    color:#2563EB;
+
+}
+
+
+/* ======================================================
+   Recent Predictions
+====================================================== */
+
+.table-hover tbody tr:hover{
+
+    background:#EEF4FF;
+
+}
+
+
+/* ======================================================
+   Buttons
+====================================================== */
+
+.btn{
+
+    border-radius:40px;
+
+    padding:12px 30px;
+
+    font-weight:600;
+
+}
+
+
+/* ======================================================
+   Responsive
+====================================================== */
+
+@media(max-width:768px){
+
+.dashboard-section{
+
+    padding-top:120px;
+
+}
+
+.dashboard-card{
+
+    margin-bottom:20px;
+
+}
+
+}

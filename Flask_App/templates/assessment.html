@@ -1,0 +1,833 @@
+{% extends "base.html" %}
+
+{% block title %}Mental Health Assessment | MindSense AI{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/assessment.css') }}">
+
+<section class="assessment-section">
+
+<div class="container">
+
+<!-- ================= Header ================= -->
+
+<div class="assessment-header text-center">
+
+<h1 class="fw-bold">
+
+Mental Health Assessment
+
+</h1>
+
+<p>
+
+Complete the assessment carefully. Your responses will be analyzed
+by our AI model to estimate your mental health risk.
+
+</p>
+
+</div>
+
+<!-- ================= Progress ================= -->
+
+<div class="progress-container">
+
+<div class="stepper">
+
+<div class="step active">
+
+<div class="circle">1</div>
+
+<span>Personal</span>
+
+</div>
+
+<div class="line"></div>
+
+<div class="step">
+
+<div class="circle">2</div>
+
+<span>Academic</span>
+
+</div>
+
+<div class="line"></div>
+
+<div class="step">
+
+<div class="circle">3</div>
+
+<span>Lifestyle</span>
+
+</div>
+
+<div class="line"></div>
+
+<div class="step">
+
+<div class="circle">4</div>
+
+<span>Mental Health</span>
+
+</div>
+
+</div>
+
+<div class="progress mt-4">
+
+<div
+id="progress-bar"
+class="progress-bar"
+style="width:25%">
+
+25%
+
+</div>
+
+</div>
+
+</div>
+
+<form
+id="assessmentForm"
+action="/predict"
+method="POST">
+
+<!-- ================================================= -->
+<!-- STEP 1 -->
+<!-- ================================================= -->
+
+<div class="form-step active">
+
+<div class="card shadow-lg border-0">
+
+<div class="card-body p-5">
+
+<h3 class="mb-4">
+
+👤 Personal Information
+
+</h3>
+
+<div class="row">
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+Age
+
+</label>
+
+<input
+type="number"
+name="Age"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+Gender
+
+</label>
+
+<select
+name="Gender"
+class="form-select"
+required>
+
+<option value="">Select</option>
+
+<option>Male</option>
+
+<option>Female</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+Working Professional / Student
+
+</label>
+
+<select
+name="Working Professional or Student"
+class="form-select"
+required>
+
+<option value="">Select</option>
+
+<option>Student</option>
+
+<option>Working Professional</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+City
+
+</label>
+
+<select
+name="City"
+class="form-select"
+required>
+
+<option value="">Select City</option>
+
+<option>Mumbai</option>
+
+<option>Pune</option>
+
+<option>Delhi</option>
+
+<option>Bangalore</option>
+
+<option>Hyderabad</option>
+
+<option>Chennai</option>
+
+<option>Ahmedabad</option>
+
+<option>Surat</option>
+
+<option>Jaipur</option>
+
+<option>Lucknow</option>
+
+<option>Nagpur</option>
+
+<option>Indore</option>
+
+<option>Patna</option>
+
+<option>Kanpur</option>
+
+<option>Bhopal</option>
+
+<option>Thane</option>
+
+<option>Nashik</option>
+
+<option>Vadodara</option>
+
+<option>Rajkot</option>
+
+<option>Visakhapatnam</option>
+
+<option>Meerut</option>
+
+<option>Varanasi</option>
+
+<option>Srinagar</option>
+
+<option>Agra</option>
+
+<option>Ghaziabad</option>
+
+<option>Kalyan</option>
+
+<option>Faridabad</option>
+
+<option>Ludhiana</option>
+
+<option>Vasai-Virar</option>
+
+<option>Kolkata</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+Profession
+
+</label>
+
+<select
+name="Profession"
+class="form-select"
+required>
+
+<option value="">Select Profession</option>
+
+<option>Student</option>
+
+<option>Software Engineer</option>
+
+<option>Doctor</option>
+
+<option>Teacher</option>
+
+<option>Lawyer</option>
+
+<option>Manager</option>
+
+<option>Researcher</option>
+
+<option>Data Scientist</option>
+
+<option>Business Analyst</option>
+
+<option>Accountant</option>
+
+<option>Financial Analyst</option>
+
+<option>Marketing Manager</option>
+
+<option>HR Manager</option>
+
+<option>Architect</option>
+
+<option>Chemist</option>
+
+<option>Civil Engineer</option>
+
+<option>Mechanical Engineer</option>
+
+<option>Graphic Designer</option>
+
+<option>Content Writer</option>
+
+<option>Customer Support</option>
+
+<option>Consultant</option>
+
+<option>Travel Consultant</option>
+
+<option>Educational Consultant</option>
+
+<option>Research Analyst</option>
+
+<option>Sales Executive</option>
+
+<option>Entrepreneur</option>
+
+<option>Judge</option>
+
+<option>Pilot</option>
+
+<option>Electrician</option>
+
+<option>Plumber</option>
+
+<option>Chef</option>
+
+<option>Pharmacist</option>
+
+<option>Investment Banker</option>
+
+<option>UX/UI Designer</option>
+
+<option>Unknown</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+Degree
+
+</label>
+
+<select
+name="Degree"
+class="form-select"
+required>
+
+<option value="">Select Degree</option>
+
+<option>B.Tech</option>
+
+<option>BE</option>
+
+<option>BSc</option>
+
+<option>BCA</option>
+
+<option>BBA</option>
+
+<option>BA</option>
+
+<option>B.Com</option>
+
+<option>MBBS</option>
+
+<option>MBA</option>
+
+<option>M.Tech</option>
+
+<option>MCA</option>
+
+<option>MSc</option>
+
+<option>MA</option>
+
+<option>ME</option>
+
+<option>MD</option>
+
+<option>PhD</option>
+
+<option>B.Ed</option>
+
+<option>M.Ed</option>
+
+<option>LLB</option>
+
+<option>LLM</option>
+
+<option>B.Pharm</option>
+
+<option>M.Pharm</option>
+
+<option>BHM</option>
+
+<option>MHM</option>
+
+<option>B.Arch</option>
+
+<option>Class 12</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="text-end mt-3">
+
+<button
+type="button"
+class="btn btn-primary next-btn">
+
+Next →
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================================================= -->
+<!-- STEP 2 -->
+<!-- ================================================= -->
+
+<div class="form-step">
+
+<div class="card shadow-lg border-0">
+
+<div class="card-body p-5">
+
+<h3 class="mb-4">
+
+🎓 Academic & Work Information
+
+</h3>
+
+<div class="row">
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+Academic Pressure (0 - 5)
+
+</label>
+
+<input
+type="range"
+class="form-range"
+name="Academic Pressure"
+min="0"
+max="5"
+step="1"
+value="0">
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+Work Pressure (0 - 5)
+
+</label>
+
+<input
+type="range"
+class="form-range"
+name="Work Pressure"
+min="0"
+max="5"
+step="1"
+value="0">
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+CGPA
+
+</label>
+
+<input
+type="number"
+step="0.01"
+name="CGPA"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+Study Satisfaction (0 - 5)
+
+</label>
+
+<input
+type="range"
+class="form-range"
+name="Study Satisfaction"
+min="0"
+max="5"
+step="1"
+value="0">
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+Job Satisfaction (0 - 5)
+
+</label>
+
+<input
+type="range"
+class="form-range"
+name="Job Satisfaction"
+min="0"
+max="5"
+step="1"
+value="0">
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+Work / Study Hours
+
+</label>
+
+<input
+type="number"
+name="Work/Study Hours"
+class="form-control"
+required>
+
+</div>
+
+</div>
+
+<div class="d-flex justify-content-between mt-4">
+
+<button
+type="button"
+class="btn btn-outline-primary prev-btn">
+
+← Back
+
+</button>
+
+<button
+type="button"
+class="btn btn-primary next-btn">
+
+Next →
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================================================= -->
+<!-- STEP 3 -->
+<!-- ================================================= -->
+
+<div class="form-step">
+
+<div class="card shadow-lg border-0">
+
+<div class="card-body p-5">
+
+<h3 class="mb-4">
+
+❤️ Lifestyle Information
+
+</h3>
+
+<div class="row">
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+Sleep Duration
+
+</label>
+
+<select
+name="Sleep Duration"
+class="form-select"
+required>
+
+<option value="">Select</option>
+
+<option>Less than 5 hours</option>
+
+<option>5-6 hours</option>
+
+<option>7-8 hours</option>
+
+<option>More than 8 hours</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+Dietary Habits
+
+</label>
+
+<select
+name="Dietary Habits"
+class="form-select"
+required>
+
+<option value="">Select</option>
+
+<option>Healthy</option>
+
+<option>Moderate</option>
+
+<option>Unhealthy</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+Financial Stress (0 - 5)
+
+</label>
+
+<input
+type="range"
+class="form-range"
+name="Financial Stress"
+min="0"
+max="5"
+step="1"
+value="0">
+
+</div>
+
+</div>
+
+<div class="d-flex justify-content-between mt-4">
+
+<button
+type="button"
+class="btn btn-outline-primary prev-btn">
+
+← Back
+
+</button>
+
+<button
+type="button"
+class="btn btn-primary next-btn">
+
+Next →
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================================================= -->
+<!-- STEP 4 -->
+<!-- ================================================= -->
+
+<div class="form-step">
+
+<div class="card shadow-lg border-0">
+
+<div class="card-body p-5">
+
+<h3 class="mb-4">
+
+🧠 Mental Health Information
+
+</h3>
+
+<div class="row">
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+Family History of Mental Illness
+
+</label>
+
+<select
+name="Family History of Mental Illness"
+class="form-select"
+required>
+
+<option value="">Select</option>
+
+<option>Yes</option>
+
+<option>No</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+Have you ever had suicidal thoughts?
+
+</label>
+
+<select
+name="Have you ever had suicidal thoughts ?"
+class="form-select"
+required>
+
+<option value="">Select</option>
+
+<option>Yes</option>
+
+<option>No</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="alert alert-info mt-4">
+
+<h5 class="mb-2">
+
+<i class="bi bi-info-circle-fill"></i>
+Before You Submit
+
+</h5>
+
+<ul class="mb-0">
+
+<li>Please ensure all information is accurate.</li>
+
+<li>Your responses are analyzed by our trained AI model.</li>
+
+<li>This assessment is for educational purposes only.</li>
+
+<li>It is not a medical diagnosis.</li>
+
+</ul>
+
+</div>
+
+<div class="d-flex justify-content-between mt-4">
+
+<button
+type="button"
+class="btn btn-outline-primary prev-btn">
+
+← Back
+
+</button>
+
+<button
+type="submit"
+class="btn btn-primary btn-lg px-5">
+
+🚀 Generate AI Prediction
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+</section>
+
+<script src="{{ url_for('static', filename='js/assessment.js') }}"></script>
+
+{% endblock %}

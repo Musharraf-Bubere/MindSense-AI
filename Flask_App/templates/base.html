@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}MindSense AI{% endblock %}</title>
+
+    <!-- hero -->
+    <link rel="icon" href="{{ url_for('static', filename='images/hero.png') }}">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold" href="/">
+
+<i class="bi bi-heart-pulse-fill me-2"></i>
+
+MindSense AI
+
+</a>
+
+<button
+class="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#navbar">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="navbar">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="/">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="/assessment">Assessment</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="/dashboard">Dashboard</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="/about">About</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- ================= PAGE CONTENT ================= -->
+
+<main>
+
+{% block content %}
+{% endblock %}
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="row gy-4">
+
+<div class="col-lg-5">
+
+<h4 class="fw-bold">
+
+<i class="bi bi-heart-pulse-fill me-2"></i>
+
+MindSense AI
+
+</h4>
+
+<p>
+
+An Explainable Artificial Intelligence platform that predicts
+mental health risk using Machine Learning and explains every
+prediction through SHAP to promote transparency and awareness.
+
+</p>
+
+</div>
+
+<div class="col-lg-3">
+
+<h5>Quick Links</h5>
+
+<ul class="list-unstyled">
+
+<li><a href="/">Home</a></li>
+
+<li><a href="/assessment">Assessment</a></li>
+
+<li><a href="/dashboard">Dashboard</a></li>
+
+<li><a href="/about">About</a></li>
+
+</ul>
+
+</div>
+
+<div class="col-lg-4">
+
+<h5>Technology</h5>
+
+<p>
+
+Python • Flask • Scikit-learn
+
+<br>
+
+SHAP • Bootstrap 5
+
+</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="text-center">
+
+<p class="mb-0">
+
+© 2026 MindSense AI |
+Designed & Developed for Educational and Research Purposes
+
+</p>
+
+</div>
+
+</div>
+
+</footer>
+
+<!-- Bootstrap -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS -->
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

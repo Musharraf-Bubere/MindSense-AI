@@ -1,0 +1,401 @@
+/* ==========================================
+   Assessment Page
+========================================== */
+
+.assessment-section{
+
+    padding:140px 0 80px;
+
+    background:linear-gradient(
+        135deg,
+        #F8FAFC,
+        #EEF4FF
+    );
+
+    min-height:100vh;
+
+}
+
+
+/* ==========================================
+   Header
+========================================== */
+
+.assessment-header{
+
+    margin-bottom:50px;
+
+}
+
+.assessment-header h1{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    color:#1E293B;
+
+}
+
+.assessment-header p{
+
+    color:#64748B;
+
+    font-size:18px;
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+
+/* ==========================================
+   Progress
+========================================== */
+
+.progress-container{
+
+    margin-bottom:45px;
+
+}
+
+.progress{
+
+    height:12px;
+
+    border-radius:50px;
+
+    background:#E2E8F0;
+
+}
+
+.progress-bar{
+
+    background:#2563EB;
+
+    transition:.4s;
+
+    font-weight:600;
+
+}
+
+
+/* ==========================================
+   Stepper
+========================================== */
+
+.stepper{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.step{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    flex:1;
+
+}
+
+.circle{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    background:#CBD5E1;
+
+    color:#475569;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.step.active .circle{
+
+    background:#2563EB;
+
+    color:white;
+
+}
+
+.step.completed .circle{
+
+    background:#16A34A;
+
+    color:white;
+
+}
+
+.step span{
+
+    margin-top:10px;
+
+    font-size:14px;
+
+    color:#64748B;
+
+    text-align:center;
+
+}
+
+.line{
+
+    height:4px;
+
+    background:#CBD5E1;
+
+    flex:1;
+
+    margin:0 10px;
+
+    margin-bottom:35px;
+
+}
+
+
+/* ==========================================
+   Form Card
+========================================== */
+
+.form-step{
+
+    display:none;
+
+}
+
+.form-step.active{
+
+    display:block;
+
+    animation:fade .4s ease;
+
+}
+
+.card{
+
+    border-radius:25px;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.08);
+
+}
+
+.card-body{
+
+    padding:45px;
+
+}
+
+.card h3{
+
+    color:#2563EB;
+
+    font-weight:700;
+
+}
+
+
+/* ==========================================
+   Inputs
+========================================== */
+
+.form-control,
+.form-select{
+
+    border-radius:12px;
+
+    padding:12px;
+
+    border:1px solid #CBD5E1;
+
+}
+
+.form-control:focus,
+.form-select:focus{
+
+    border-color:#2563EB;
+
+    box-shadow:0 0 0 .2rem rgba(37,99,235,.15);
+
+}
+
+.form-label{
+
+    font-weight:600;
+
+    color:#334155;
+
+}
+
+
+/* ==========================================
+   Range Slider
+========================================== */
+
+.form-range{
+
+    cursor:pointer;
+
+}
+
+
+/* ==========================================
+   Buttons
+========================================== */
+
+.btn{
+
+    border-radius:40px;
+
+    padding:12px 30px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn-primary{
+
+    background:#2563EB;
+
+    border:none;
+
+}
+
+.btn-primary:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(37,99,235,.20);
+
+}
+
+.btn-outline-primary:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+/* ==========================================
+   Alert
+========================================== */
+
+.alert{
+
+    border-radius:18px;
+
+}
+
+
+/* ==========================================
+   Animation
+========================================== */
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media(max-width:991px){
+
+.stepper{
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+.line{
+
+    display:none;
+
+}
+
+.assessment-header h1{
+
+    font-size:34px;
+
+}
+
+.card-body{
+
+    padding:30px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.assessment-section{
+
+    padding-top:120px;
+
+}
+
+.assessment-header h1{
+
+    font-size:28px;
+
+}
+
+.btn{
+
+    width:100%;
+
+    margin-top:10px;
+
+}
+
+.d-flex{
+
+    flex-direction:column;
+
+}
+
+}

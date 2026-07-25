@@ -1,0 +1,23 @@
+.about-section{
+    background:#f8f9fa;
+    padding-top:120px;
+    min-height:100vh;
+}
+
+.hover-card{
+    transition:.3s ease;
+}
+
+.hover-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.15)!important;
+}
+
+.table td,
+.table th{
+    vertical-align:middle;
+}
+
+.display-4{
+    font-size:3rem;
+}
