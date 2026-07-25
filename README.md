@@ -306,10 +306,11 @@ Each assessment generates a downloadable report containing:
 
 **Musharraf Bubere**
 
-Master's Project
+Master's Student
 
+AI • Machine Learning • Data Science Enthusiast
 
-**MindSense AI**
+MindSense AI
 
 ---
 
