@@ -308,7 +308,6 @@ Each assessment generates a downloadable report containing:
 
 Master's Project
 
-Department of Computer Science
 
 **MindSense AI**
 
