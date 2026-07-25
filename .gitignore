@@ -4,8 +4,10 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyo
+*.pyd
 
-# Compiled extensions
+# Compiled Extensions
 *.so
 
 # ==========================================
@@ -20,11 +22,17 @@ ENV/
 # Jupyter Notebook
 # ==========================================
 .ipynb_checkpoints/
+*.nbconvert.ipynb
 
 # ==========================================
 # VS Code
 # ==========================================
 .vscode/
+
+# ==========================================
+# PyCharm
+# ==========================================
+.idea/
 
 # ==========================================
 # Python Packaging
@@ -38,6 +46,7 @@ lib64/
 parts/
 sdist/
 wheels/
+pip-wheel-metadata/
 *.egg-info/
 .installed.cfg
 *.egg
@@ -60,26 +69,15 @@ logs/
 # ==========================================
 .pytest_cache/
 .coverage
+coverage.xml
 htmlcov/
 
 # ==========================================
-# Type Checking
+# Type Checking / Linters
 # ==========================================
 .mypy_cache/
 .pyre/
 .ruff_cache/
-
-# ==========================================
-# Jupyter Runtime
-# ==========================================
-*.nbconvert.ipynb
-
-# ==========================================
-# OS Files
-# ==========================================
-.DS_Store
-Thumbs.db
-desktop.ini
 
 # ==========================================
 # Temporary Files
@@ -91,13 +89,11 @@ desktop.ini
 *.swo
 
 # ==========================================
-# Model Files (Optional)
-# Uncomment if models are generated locally
+# Operating System Files
 # ==========================================
-# Models/*.pkl
-# Models/*.joblib
-# Models/*.h5
-# Models/*.keras
+.DS_Store
+Thumbs.db
+desktop.ini
 
 # ==========================================
 # Flask
@@ -106,6 +102,29 @@ instance/
 .flaskenv
 
 # ==========================================
-# IDE
+# Generated PDF Reports
 # ==========================================
-.idea/
+Flask_App/static/reports/*.pdf
+
+# ==========================================
+# SQLite Database
+# Uncomment the next line if you DON'T want
+# to upload your database.
+# ==========================================
+# Flask_App/database/mindsense.db
+
+# ==========================================
+# Machine Learning Models
+# Keep these commented because your project
+# requires the trained models.
+# ==========================================
+# Flask_App/Models/*.pkl
+# Flask_App/Models/*.joblib
+# Flask_App/Models/*.h5
+# Flask_App/Models/*.keras
+
+# ==========================================
+# Miscellaneous
+# ==========================================
+*.sqlite3
+*.db-journal
