@@ -107,16 +107,19 @@ instance/
 Flask_App/static/reports/*.pdf
 
 # ==========================================
-# SQLite Database
-# Uncomment the next line if you DON'T want
-# to upload your database.
+# Generated SHAP Charts
 # ==========================================
-# Flask_App/database/mindsense.db
+Flask_App/static/charts/*.png
+
+# ==========================================
+# SQLite Database
+# ==========================================
+Flask_App/database/mindsense.db
 
 # ==========================================
 # Machine Learning Models
-# Keep these commented because your project
-# requires the trained models.
+# Keep these tracked because the deployed
+# application requires the trained models.
 # ==========================================
 # Flask_App/Models/*.pkl
 # Flask_App/Models/*.joblib
